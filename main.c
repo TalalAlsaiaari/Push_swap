@@ -6,11 +6,20 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:29:05 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/01 21:26:00 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/01 23:02:49 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
+
+void	not_digit(char c)
+{
+	if (ft_isdigit(c) == 0)
+	{
+		ft_printf("Error\n");
+		exit (1);
+	}
+}
 
 int	args_counter(char **av)
 {
@@ -19,10 +28,10 @@ int	args_counter(char **av)
 	int counter;
 
 	y = 1;
-	x = 0;
 	counter = 0;
 	while (av[y])
 	{
+		x = 0;
 		while (av[y][x])
 		{
 			while (av[y][x] == ' ')
@@ -30,9 +39,11 @@ int	args_counter(char **av)
 			if (av[y][x] != '\0')
 				counter++;
 			while (av[y][x] && av[y][x] != ' ')
+			{
+				not_digit(av[y][x]);
 				x++;
+			}
 		}
-		x = 0;
 		y++;
 	}
 	return (counter);
