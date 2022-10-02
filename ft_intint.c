@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_intint.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/01 15:15:24 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/02 17:55:37 by talsaiaa         ###   ########.fr       */
+/*   Created: 2022/10/02 16:38:32 by talsaiaa          #+#    #+#             */
+/*   Updated: 2022/10/02 17:21:16 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include "include/push_swap.h"
 
-# include "../ft_printf/ft_printf.h"
-# include "../libft/libft.h"
+int	*ft_intint(int *s, int c, int size)
+{
+	int			i;
 
-char			*ft_strsep(int size, char **strs, char *sep);
-long int		special_atoi(char *str);
-int				*ft_intint(int *s, int c, int size);
-
-#endif
+	i = 0;
+	while (i <= size)
+	{
+		if (s[i] == c)
+			return (&s[i]);
+		if (s[i] == 0 && c == 0)
+			return (&s[i]);
+		i++;
+	}
+	return (0);
+}

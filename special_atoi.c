@@ -6,11 +6,30 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 23:29:11 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/01 23:47:26 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/02 20:26:50 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
+
+void	number_check(long int res, int s, int c)
+{
+	if ((c != '\0' && c == '+') || (c != '\0' && c == '-'))
+	{
+		ft_printf("Error\nSign after number\n");
+		exit (1);
+	}
+	else if (res == 0 && s != 0)
+	{
+		ft_printf("Error\nSign without number\n");
+		exit (1);
+	}
+	else if ((res * s) > 2147483647 || (res * s) < -2147483648)
+	{
+		ft_printf("Error\nNumber out of int bounds\n");
+		exit (1);
+	}
+}
 
 void	extra_sign(char c)
 {
@@ -21,11 +40,18 @@ void	extra_sign(char c)
 	}
 }
 
-int	special_atoi(char *str)
+int	zero_check(char c, int s)
 {
-	int	x;
-	int	s;
-	int	res;
+	if (c == '0')
+		s = 0;
+	return (s);
+}
+
+long int	special_atoi(char *str)
+{
+	int			x;
+	int			s;
+	long int	res;
 
 	x = 0;
 	s = 1;
@@ -40,10 +66,12 @@ int	special_atoi(char *str)
 		if (str[x] == '-' || str[x] == '+')
 			extra_sign(str[x]);
 	}
+	s = zero_check(str[x], s);
 	while (str[x] >= '0' && str[x] <= '9')
 	{
 		res = (str[x] - '0') + (res * 10);
 		x++;
 	}
+	number_check(res, s, str[x]);
 	return (res * s);
 }
