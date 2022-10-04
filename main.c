@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:29:05 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/02 21:19:00 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/04 21:48:34 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ void	a_list(int ac, char *one_d)
 	while (two_d[j])
 	{
 		a[i] = special_atoi(two_d[j]);
-		printf("a[i]: %d\n", a[i]);
 		i++;
 		j++;
 	}
@@ -90,17 +89,9 @@ void	a_list(int ac, char *one_d)
 int	main(int ac, char **av)
 {	
 	char	*temp;
-	char	*temp2;
-	int		i;
-	int		j;
 
-	i = 0;
-	j = 0;
 	temp = ft_strsep(ac - 1, av + 1, " ");
-	printf("temp: %s\n", temp);
-	while (temp[i])
 	ac = args_counter(temp);
-	printf("ac: %d\n", ac);
 	if (ac < 2)
 	{
 		ft_printf("Error\nInvalid number of arguments");
