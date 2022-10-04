@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:29:05 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/04 21:48:34 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/04 22:30:49 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	duplicate_checker(int *a, int ac)
 	}
 }
 
-void	a_list(int ac, char *one_d)
+int	*a_list(int ac, char *one_d)
 {
 	char	**two_d;
 	int		*a;
@@ -84,11 +84,14 @@ void	a_list(int ac, char *one_d)
 		j++;
 	}
 	duplicate_checker(a, ac);
+	return (a);
 }
 			
 int	main(int ac, char **av)
 {	
 	char	*temp;
+	int		*a;
+	int	x = 0;
 
 	temp = ft_strsep(ac - 1, av + 1, " ");
 	ac = args_counter(temp);
@@ -97,6 +100,10 @@ int	main(int ac, char **av)
 		ft_printf("Error\nInvalid number of arguments");
 		return (1);
 	}
-	a_list(ac, temp);
+	a = a_list(ac, temp);
+	while (x < ac)
+	{
+		printf("a: %d\n", a[x++]);
+	}
 	return (0);
 }
