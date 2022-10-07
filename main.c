@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:29:05 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/07 23:05:38 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/08 00:52:28 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	not_digit(char c)
 {
 	if (ft_isdigit(c) == 0 && c != '-' && c != '+')
 	{
-		ft_printf("Error\n");
+		ft_putstr_fd("Error\n", 2);
 		exit (1);
 	}
 }
@@ -56,7 +56,7 @@ void	duplicate_checker(int *a, int ac)
 		addr = ft_intint(a, a[i], ac);
 		if (a[i] == a[j] && &a[i] != addr)
 		{
-			ft_printf("Error\nDuplicate number found\n");
+			ft_putstr_fd("Error\n", 2);
 			exit (1);
 		}
 		i++;
@@ -98,7 +98,7 @@ int	main(int ac, char **av)
 	ac = args_counter(temp);
 	if (ac < 2)
 	{
-		ft_printf("Error\nInvalid number of arguments");
+		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
 	a = a_list(ac, temp);

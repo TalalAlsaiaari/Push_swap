@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 23:29:11 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/02 20:26:50 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/08 00:53:35 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@ void	number_check(long int res, int s, int c)
 {
 	if ((c != '\0' && c == '+') || (c != '\0' && c == '-'))
 	{
-		ft_printf("Error\nSign after number\n");
+		ft_putstr_fd("Error\n", 2);
 		exit (1);
 	}
 	else if (res == 0 && s != 0)
 	{
-		ft_printf("Error\nSign without number\n");
+		ft_putstr_fd("Error\n", 2);
 		exit (1);
 	}
 	else if ((res * s) > 2147483647 || (res * s) < -2147483648)
 	{
-		ft_printf("Error\nNumber out of int bounds\n");
+		ft_putstr_fd("Error\n", 2);
 		exit (1);
 	}
 }
@@ -35,7 +35,7 @@ void	extra_sign(char c)
 {
 	if (c == '-' || c == '+')
 	{
-		ft_printf("Error\nArgumnet has multiple signs");
+		ft_putstr_fd("Error\n", 2);
 		exit (1);
 	}
 }
