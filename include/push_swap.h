@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:15:24 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/07 21:01:21 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/07 23:00:51 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int				*reverse_rotate_a(int *a, int ac);
 int				*reverse_rotate_b(int *b, int ac);
 void			reverse_rotate_r(int *a, int *b, int ac);
 int				*push_a(int *a, int *b, int ac);
-int				*push_b(int *a, int ac);
+int				*push_b(int *b, int *a, int ac);
 
 #endif

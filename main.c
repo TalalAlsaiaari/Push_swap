@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:29:05 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/07 22:51:20 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/07 23:05:38 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,39 +102,32 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	a = a_list(ac, temp);
+	b = (int *)malloc(sizeof(int) * ac);
+	x = 0;
 	while (x < ac)
-	{
+		printf("b: %d\n", b[x++]);
+	x = 0;
+	while (x < ac)
 		printf("a: %d\n", a[x++]);
-	}
 	swap_a(a, ac);
 	x = 0;
 	while (x < ac)
-	{
 		printf("a swapped: %d\n", a[x++]);
-	}
 	rotate_a(a, ac);
 	x = 0;
 	while (x < ac)
-	{
 		printf("a rotated: %d\n", a[x++]);
-	}
 	reverse_rotate_a(a, ac);
 	x = 0;
 	while (x < ac)
-	{
 		printf("a reverse rotated: %d\n", a[x++]);
-	}
-	b = push_b(a, ac);
+	b = push_b(b, a, ac);
 	x = 0;
 	while (x <= ac)
-	{
 		printf("push b: %d\n", b[x++]);
-	}
-	a = push_a(a, b, ac);
-	x = 0;
-	while (x <= ac)
-	{
-		printf("push a: %d\n", a[x++]);
-	}
+	// a = push_a(a, b, ac);
+	// x = 0;
+	// while (x <= ac)
+	// 	printf("push a: %d\n", a[x++]);
 	return (0);
 }
