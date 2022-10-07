@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:29:05 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/04 22:30:49 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/07 22:51:20 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ int	main(int ac, char **av)
 {	
 	char	*temp;
 	int		*a;
+	int		*b;
 	int	x = 0;
 
 	temp = ft_strsep(ac - 1, av + 1, " ");
@@ -104,6 +105,36 @@ int	main(int ac, char **av)
 	while (x < ac)
 	{
 		printf("a: %d\n", a[x++]);
+	}
+	swap_a(a, ac);
+	x = 0;
+	while (x < ac)
+	{
+		printf("a swapped: %d\n", a[x++]);
+	}
+	rotate_a(a, ac);
+	x = 0;
+	while (x < ac)
+	{
+		printf("a rotated: %d\n", a[x++]);
+	}
+	reverse_rotate_a(a, ac);
+	x = 0;
+	while (x < ac)
+	{
+		printf("a reverse rotated: %d\n", a[x++]);
+	}
+	b = push_b(a, ac);
+	x = 0;
+	while (x <= ac)
+	{
+		printf("push b: %d\n", b[x++]);
+	}
+	a = push_a(a, b, ac);
+	x = 0;
+	while (x <= ac)
+	{
+		printf("push a: %d\n", a[x++]);
 	}
 	return (0);
 }

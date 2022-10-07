@@ -1,6 +1,6 @@
 NAME		=	push_swap
 
-SRCS		=	main.c ft_strsep.c special_atoi.c ft_intint.c
+SRCS		=	main.c ft_strsep.c special_atoi.c ft_intint.c sa.c sb.c ss.c ra.c rb.c rr.c rra.c rrb.c rrr.c pa.c pb.c 
 
 OBJS		=	$(SRCS:.c=.o)
 
