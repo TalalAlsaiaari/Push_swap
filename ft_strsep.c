@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 17:04:32 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/04 21:40:30 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/08 17:49:26 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,34 +42,6 @@ int	dest_len(char **strs, int size, char *sep)
 	return (dest_len);
 }
 
-// int	bruh(char **strs, int i, char *dest, int size)
-// {
-// 	int	j;
-// 	int	x;
-
-// 	j = 0;
-// 	x = 0;
-// 	while (strs[i][j])
-// 	{
-// 		if (ft_strchr(strs[i], '\t') != 0 || ft_strchr(strs[i], ' ') != 0)
-// 		{
-// 			if (strs[i][j] == ' ' || strs[i][j] == '\t')
-// 				j++;
-// 			while (strs[i][j] != ' ' && strs[i][j] != '\t' && strs[i][j])
-// 				dest[x++] = strs[i][j++];
-// 			while (strs[i][j] == ' ' || strs[i][j] == '\t')
-// 				j++;
-// 			dest[x] = ' ';
-// 			x++;
-// 		}
-// 		else
-// 			dest[x++] = strs[i][j++];
-// 	}
-// 	if (i < size - 1)
-// 		dest[x++] = ' ';
-// 	return (x);
-// }
-
 void	string_check(char **strs, char *dest, int size)
 {
 	int	i;
@@ -99,7 +71,6 @@ void	string_check(char **strs, char *dest, int size)
 		}
 		if (i < size - 1)
 			dest[x++] = ' ';
-		// x = bruh(strs, i, dest, size);
 		i++;
 	}
 	dest[x] = '\0';

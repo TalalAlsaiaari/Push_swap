@@ -6,13 +6,13 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 19:20:45 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/07 20:42:20 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/08 19:25:51 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
 
-void	rotate_r(int *a, int *b, int ac)
+void	rotate_r(t_list *a, t_list *b, int ac)
 {
 	rotate_a(a, ac);
 	rotate_b(b, ac);

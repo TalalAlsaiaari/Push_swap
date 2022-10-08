@@ -6,39 +6,39 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 19:37:20 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/07 21:04:54 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/08 23:43:36 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
 
-int	*push_a(int *a, int *b, int ac)
+int	*push_a(t_list *a, t_list *b, int ac)
 {
-	int	*a_push;
-	int	i;
-	int	len;
-	
+	int		i;
+	int		len;
+	int		*temp;
+
 	i = 0;
 	while (i < ac)
 		i++;
 	len = i;
 	if (len == 0)
 		return (0);
-	a_push = (int *)malloc((sizeof(int) * ac) + 1);
-	if (a_push == 0)
-		return (0);
-	a_push[0] = b[0];
+	temp = (int *)malloc(sizeof(int) * ac);
+	i = 0;
+	while (i <= ac)
+	{
+		temp[i] = a->list[i];
+		i++;
+	}
+	a->list[0] = b->list[0];
 	i = 0;
 	while (i < ac)
 	{
-		a_push[i + 1] = a[i + 1];
+		a->list[i + 1] = temp[i];
 		i++;
 	}
-	int x = 0;
-	while (x < ac)
-	{
-		printf("a after pushing: %d\n", a_push[x++]);
-	}
+	free (temp);
 	ft_printf("pa\n");
-	return (a_push);
+	return (a->list);
 }

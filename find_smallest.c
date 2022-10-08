@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rb.c                                               :+:      :+:    :+:   */
+/*   find_smallest.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 19:18:50 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/08 19:24:58 by talsaiaa         ###   ########.fr       */
+/*   Created: 2022/10/08 18:35:44 by talsaiaa          #+#    #+#             */
+/*   Updated: 2022/10/08 19:19:06 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
 
-int	*rotate_b(t_list *b, int ac)
+int	find_smallest(t_list *a)
 {
-	int	len;
-	int i;
-	int temp;
-
-	i = 0;
-	while (i < ac)
-		i++;
-	len = i;
-	if (len == 1 || len == 0)
+	if (a->list[0] < a->list[1] && a->list[0] < a->list[2] && a->list[0] < a->list[3])
 		return (0);
-	i = 0;
-	temp = b->list[i];
-	while (i < ac - 1)
-	{
-		b->list[i] = b->list[i + 1];
-		i++;
-	}
-	b->list[i] = temp;
-	ft_printf("rb\n");
-	return (b->list);
+	else if (a->list[0] > a->list[1] && a->list[1] < a->list[2] && a->list[1] < a->list[3])
+		return (1);
+	else if (a->list[0] > a->list[2] && a->list[1] > a->list[2] && a->list[2] < a->list[3])
+		return (2);
+	else if (a->list[0] > a->list[3] && a->list[1] > a->list[3] && a->list[2] > a->list[3])
+		return (3);
+	return (-1);
 }

@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:29:05 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/08 00:52:28 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/08 19:17:54 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,8 @@ int	*a_list(int ac, char *one_d)
 int	main(int ac, char **av)
 {	
 	char	*temp;
-	int		*a;
-	int		*b;
-	int	x = 0;
+	t_list		a;
+	t_list		b;
 
 	temp = ft_strsep(ac - 1, av + 1, " ");
 	ac = args_counter(temp);
@@ -101,33 +100,11 @@ int	main(int ac, char **av)
 		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
-	a = a_list(ac, temp);
-	b = (int *)malloc(sizeof(int) * ac);
-	x = 0;
-	while (x < ac)
-		printf("b: %d\n", b[x++]);
-	x = 0;
-	while (x < ac)
-		printf("a: %d\n", a[x++]);
-	swap_a(a, ac);
-	x = 0;
-	while (x < ac)
-		printf("a swapped: %d\n", a[x++]);
-	rotate_a(a, ac);
-	x = 0;
-	while (x < ac)
-		printf("a rotated: %d\n", a[x++]);
-	reverse_rotate_a(a, ac);
-	x = 0;
-	while (x < ac)
-		printf("a reverse rotated: %d\n", a[x++]);
-	b = push_b(b, a, ac);
-	x = 0;
-	while (x <= ac)
-		printf("push b: %d\n", b[x++]);
-	// a = push_a(a, b, ac);
-	// x = 0;
-	// while (x <= ac)
-	// 	printf("push a: %d\n", a[x++]);
+	a.list = a_list(ac, temp);
+	b.list = (int *)malloc(sizeof(int) * ac);
+	if (ac == 3)
+		sort_three(&a, ac);
+	if (ac == 4)
+		sort_four(&a, &b, ac);
 	return (0);
 }
