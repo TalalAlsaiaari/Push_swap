@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:51:16 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/08 21:22:37 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/09 16:16:15 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ int	*sort_three(t_list *a, int ac)
 		return (a->list);
 	else if (a->list[0] < a->list[1] && a->list[1] > a->list[2] && a->list[2] > a->list[0])
 	{
-		a->list = reverse_rotate_a(a, ac);
-		a->list = swap_a(a, ac);
+		reverse_rotate_a(a, ac);
+		swap_a(a, ac);
 	}
 	else if (a->list[0] > a->list[1] && a->list[1] < a->list[2] && a->list[2] > a->list[0])
-		a->list = swap_a(a, ac);
+		swap_a(a, ac);
 	else if (a->list[0] < a->list[1] && a->list[1] > a->list[2] && a->list[2] < a->list[0])
-		a->list = reverse_rotate_a(a, ac);
+		reverse_rotate_a(a, ac);
 	else if (a->list[0] > a->list[1] && a->list[1] < a->list[2] && a->list[2] < a->list[0])
 		rotate_a(a, ac);
 	else if (a->list[0] > a->list[1] && a->list[1] > a->list[2] && a->list[2] < a->list[0])
 	{
-		a->list = swap_a(a, ac);
-		a->list = reverse_rotate_a(a, ac);
+		swap_a(a, ac);
+		reverse_rotate_a(a, ac);
 	}
 	return (a->list);
 }
@@ -44,28 +44,25 @@ int *sort_four(t_list *a, t_list *b, int ac)
 		return (a->list);
 	else if (i == 1)
 	{
-		a->list = swap_a(a, ac);
-		b->list = push_b(b, a, ac);
-		a->list = sort_three(a, ac);
-		a->list = push_a(a, b, ac);
+		swap_a(a, ac);
+		push_b(b, a, ac);
+		sort_three(a, ac);
+		push_a(a, b, ac);
 	}
 	else if (i == 2)
 	{
-		a->list = reverse_rotate_a(a, ac);
-		a->list = reverse_rotate_a(a, ac);
-		b->list = push_b(b, a, ac);
-		int x = 0;
-		while (x < ac)
-			printf("a: %d\n", a->list[x++]);
-		a->list = sort_three(a, ac);
-		a->list = push_a(a, b, ac);
+		reverse_rotate_a(a, ac);
+		reverse_rotate_a(a, ac);
+		push_b(b, a, ac);
+		sort_three(a, ac);
+		push_a(a, b, ac);
 	}
 	else if (i == 3)
 	{
-		a->list = reverse_rotate_a(a, ac);
-		b->list = push_b(b, a, ac);
-		a->list = sort_three(a, ac);
-		a->list = push_a(a, b, ac);
+		reverse_rotate_a(a, ac);
+		push_b(b, a, ac);
+		sort_three(a, ac);
+		push_a(a, b, ac);
 	}
 	int x = 0;
 	while (x < ac)
