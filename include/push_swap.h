@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:15:24 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/09 20:18:13 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/09 23:42:33 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,7 @@ int				find_smallest(t_list *a, int *ac);
 int 			*sort_four(t_list *a, t_list *b, int *ac);
 int				is_sorted(t_list *a, int ac);
 int 			*sort_five(t_list *a, t_list *b, int *ac);
+int				*compare_stack(t_list *a, int ac);
+
 
 #endif
