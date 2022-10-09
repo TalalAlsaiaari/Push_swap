@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 19:37:20 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/08 23:43:36 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/09 16:01:09 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	*push_a(t_list *a, t_list *b, int ac)
 		return (0);
 	temp = (int *)malloc(sizeof(int) * ac);
 	i = 0;
-	while (i <= ac)
+	while (i < ac)
 	{
 		temp[i] = a->list[i];
 		i++;
