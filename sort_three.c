@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:51:16 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/09 16:37:06 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/09 18:43:15 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int *sort_four(t_list *a, t_list *b, int ac)
 {
 	int i;
 
-	i = find_smallest(a);
+	i = find_smallest(a, ac);
 	if (i == 0)
 		return (a->list);
 	else if (i == 1)

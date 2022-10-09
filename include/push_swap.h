@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:15:24 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/09 16:34:44 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/09 18:44:04 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../ft_printf/ft_printf.h"
 # include "../libft/libft.h"
+# include <limits.h>
 
 typedef struct s_list
 {
@@ -36,7 +37,7 @@ void			reverse_rotate_r(t_list *a, t_list *b, int ac);
 void			push_a(t_list *a, t_list *b, int ac);
 void			push_b(t_list *b, t_list *a, int ac);
 int				*sort_three(t_list *a, int ac);
-int				find_smallest(t_list *a);
+int				find_smallest(t_list *a, int ac);
 int 			*sort_four(t_list *a, t_list *b, int ac);
 
 #endif
