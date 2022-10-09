@@ -1,7 +1,7 @@
 NAME		=	push_swap
 
 SRCS		=	main.c ft_strsep.c special_atoi.c ft_intint.c sa.c sb.c ss.c ra.c rb.c rr.c rra.c rrb.c rrr.c \
-				pa.c pb.c sort_three.c find_smallest.c 
+				pa.c pb.c sort_three.c find_smallest.c is_sorted.c 
 
 OBJS		=	$(SRCS:.c=.o)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:29:05 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/09 16:32:48 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/09 20:22:16 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,10 @@ int	main(int ac, char **av)
 	a.list = a_list(ac, temp);
 	b.list = (int *)malloc(sizeof(int) * ac);
 	if (ac == 3)
-		sort_three(&a, ac);
+		sort_three(&a, &ac);
 	if (ac == 4)
-		sort_four(&a, &b, ac);
+		sort_four(&a, &b, &ac);
+	if (ac == 5)
+		sort_five(&a, &b, &ac);
 	return (0);
 }

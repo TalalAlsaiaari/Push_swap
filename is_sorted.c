@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rra.c                                              :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 19:22:54 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/09 19:16:07 by talsaiaa         ###   ########.fr       */
+/*   Created: 2022/10/09 19:38:11 by talsaiaa          #+#    #+#             */
+/*   Updated: 2022/10/09 20:04:03 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
 
-void	reverse_rotate_a(t_list *a, int *ac)
+int	is_sorted(t_list *a, int ac)
 {
-	int	len;
-	int i;
-	int temp;
+	int	i;
+	int j;
 
 	i = 0;
-	while (i < *ac)
-		i++;
-	len = i;
-	if (len == 1 || len == 0)
-		exit (1);
-	temp = a->list[i - 1];
-	i -= 1;
-	while (i > 0)
+	j = 1;
+	while (j < ac)
 	{
-		a->list[i] = a->list[i - 1];
-		i--;
+		if (a->list[i] > a->list[j])
+			return (0);
+		i++;
+		j++;
 	}
-	a->list[0] = temp;
-	ft_printf("rra\n");
+	return (1);
 }
