@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   rrb.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 19:33:00 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/08 19:26:56 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/09 16:38:24 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
 
-int	*reverse_rotate_b(t_list *b, int ac)
+void	reverse_rotate_b(t_list *b, int ac)
 {
 	int	len;
 	int i;
@@ -23,7 +23,7 @@ int	*reverse_rotate_b(t_list *b, int ac)
 		i++;
 	len = i;
 	if (len == 1 || len == 0)
-		return (0);
+		exit (1);
 	temp = b->list[i - 1];
 	while (i > 0)
 	{
@@ -32,5 +32,4 @@ int	*reverse_rotate_b(t_list *b, int ac)
 	}
 	b->list[0] = temp;
 	ft_printf("rrb\n");
-	return (b->list);
 }

@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:29:05 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/09 15:55:26 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/09 16:32:48 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ int	main(int ac, char **av)
 	char	*temp;
 	t_list		a;
 	t_list		b;
-	// int x = 0;
 
 	temp = ft_strsep(ac - 1, av + 1, " ");
 	ac = args_counter(temp);

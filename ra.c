@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ra.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 19:07:21 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/08 19:36:30 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/09 16:37:57 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
 
-int	*rotate_a(t_list *a, int ac)
+void	rotate_a(t_list *a, int ac)
 {
 	int	len;
 	int i;
@@ -23,7 +23,7 @@ int	*rotate_a(t_list *a, int ac)
 		i++;
 	len = i;
 	if (len == 1 || len == 0)
-		return (0);
+		exit (1);
 	i = 0;
 	temp = a->list[i];
 	while (i < ac - 1)
@@ -33,5 +33,4 @@ int	*rotate_a(t_list *a, int ac)
 	}
 	a->list[i] = temp;
 	ft_printf("ra\n");
-	return (a->list);
 }

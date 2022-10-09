@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:51:16 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/09 16:16:15 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/09 16:37:06 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ int	*sort_three(t_list *a, int ac)
 		swap_a(a, ac);
 		reverse_rotate_a(a, ac);
 	}
+	int x = 0;
+	while (x < ac)
+		printf("a: %d\n", a->list[x++]);
 	return (a->list);
 }
 
