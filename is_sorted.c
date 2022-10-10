@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 19:38:11 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/09 20:04:03 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/10 20:17:46 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	is_sorted(t_list *a, int ac)
 	j = 1;
 	while (j < ac)
 	{
-		if (a->list[i] > a->list[j])
+		if (a->top[i] > a->top[j])
 			return (0);
 		i++;
 		j++;

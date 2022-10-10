@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 22:20:16 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/09 22:39:30 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/10 20:44:37 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	*compare_stack(t_list *a, int ac)
 		return (0);
 	i = -1;
 	while (++i < ac)
-		c[i] = a->list[i];
+		c[i] = a->top[i];
 	i = 0;
 	while (i < ac)
 	{

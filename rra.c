@@ -6,31 +6,26 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 19:22:54 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/09 19:16:07 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/10 22:39:52 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
 
-void	reverse_rotate_a(t_list *a, int *ac)
+void	reverse_rotate_a(t_list *a)
 {
-	int	len;
-	int i;
 	int temp;
+	int	i;
 
-	i = 0;
-	while (i < *ac)
-		i++;
-	len = i;
-	if (len == 1 || len == 0)
-		exit (1);
-	temp = a->list[i - 1];
-	i -= 1;
+	if (a->size == 1 || !a->size)
+		return ;
+	temp = a->top[a->size - 1];
+	i = a->size - 2;
 	while (i > 0)
 	{
-		a->list[i] = a->list[i - 1];
+		a->top[i] = a->top[i - 1];
 		i--;
 	}
-	a->list[0] = temp;
+	a->top[0] = temp;
 	ft_printf("rra\n");
 }

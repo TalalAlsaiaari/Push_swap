@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 18:35:44 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/09 19:17:11 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/10 20:17:11 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	find_smallest(t_list *a, int *ac)
 	min = INT_MAX;
 	while (i < *ac)
 	{
-		if (a->list[i] < min)
+		if (a->top[i] < min)
 		{
-			min = a->list[i];
+			min = a->top[i];
 			index = i;
 		}
 		i++;
