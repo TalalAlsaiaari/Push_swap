@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:15:24 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/10 20:44:20 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/12 23:46:01 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ void			reverse_rotate_r(t_list *a, t_list *b);
 void			push_a(t_list *a, t_list *b);
 void			push_b(t_list *b, t_list *a);
 int				*sort_three(t_list *a);
-int				find_smallest(t_list *a, int *ac);
-int 			*sort_four(t_list *a, t_list *b, int *ac);
-int				is_sorted(t_list *a, int ac);
-int 			*sort_five(t_list *a, t_list *b, int *ac);
+int				find_smallest(t_list *a, int *asize);
+int 			*sort_four(t_list *a, t_list *b);
+int				is_sorted(t_list *a, int asize);
+int 			*sort_five(t_list *a, t_list *b);
 int				*compare_stack(t_list *a, int ac);
 int				*sort_hundred(t_list *a, t_list *b, int *c, int *ac);
 

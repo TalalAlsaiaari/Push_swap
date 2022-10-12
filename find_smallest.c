@@ -6,13 +6,13 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 18:35:44 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/10 20:17:11 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/12 23:37:43 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
 
-int	find_smallest(t_list *a, int *ac)
+int	find_smallest(t_list *a, int *asize)
 {
 	int	min;
 	int	index;
@@ -20,7 +20,7 @@ int	find_smallest(t_list *a, int *ac)
 
 	i = 0;
 	min = INT_MAX;
-	while (i < *ac)
+	while (i < *asize)
 	{
 		if (a->top[i] < min)
 		{

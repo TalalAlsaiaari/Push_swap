@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:29:05 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/12 19:48:46 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/12 23:46:22 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,9 +109,9 @@ int	main(int ac, char **av)
 	if (ac == 3)
 		sort_three(&a);
 	if (ac == 4)
-		sort_four(&a, &b, &ac);
+		sort_four(&a, &b);
 	if (ac == 5)
-		sort_five(&a, &b, &ac);
+		sort_five(&a, &b);
 	if (ac > 5 && ac <= 100)
 		sort_hundred(&a, &b, c, &ac);
 	return (0);
