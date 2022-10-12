@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 19:33:00 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/10 22:40:10 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/12 19:44:57 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	reverse_rotate_b(t_list *b)
 	if (b->size == 1 || !b->size)
 		return ;
 	temp = b->top[b->size - 1];
-	i = b->size - 2;
+	i = b->size - 1;
 	while (i > 0)
 	{
 		b->top[i] = b->top[i - 1];

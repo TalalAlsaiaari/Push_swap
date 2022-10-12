@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 20:17:42 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/10 22:33:59 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/12 19:47:51 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,19 @@
 
 void	push_b(t_list *b, t_list *a)
 {
-	if (!a->size)
+	int	i;
+	
+	i = 0;
+	if (!a->top)
 		return ;
-	int x = 0;
-	while (x < b->size)
-		printf("b before pushing: %d\n", b->top[x++]);
-	// b->size += 1;
+	while (i < b->size)
+	{
+		b->top[i + 1] = b->top[i];
+		i++;
+	}
 	b->top[0] = a->top[0];
-	// b->top--;
-	// a->size -= 1;
+	b->size++;
 	a->top++;
-	x = 0;
-	while (x < b->size)
-		printf("b after pushing: %d\n", b->top[x++]);
-	// int x = 0;
+	a->size--;
 	ft_printf("pb\n");
-	// while (x < *ac)
-	// 	printf("a after pushing to b: %d\n", a->list[x++]);
 }

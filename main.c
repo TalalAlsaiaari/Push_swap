@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:29:05 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/10 22:27:41 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/12 19:48:46 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,9 @@ int	*a_list(int ac, char *one_d)
 int	main(int ac, char **av)
 {	
 	char	*temp;
-	t_list		a;
-	t_list		b;
-	int			*c;
+	t_list	a;
+	t_list	b;
+	int		*c;
 
 	temp = ft_strsep(ac - 1, av + 1, " ");
 	ac = args_counter(temp);
@@ -104,23 +104,15 @@ int	main(int ac, char **av)
 	a.top = a_list(ac, temp);
 	b.top = (int *)malloc(sizeof(int) * ac);
 	a.size = ac;
-	b.size = ac;
+	b.size = 0;
 	c = compare_stack(&a, ac);
-	// reverse_rotate_a(&a);
-	// reverse_rotate_a(&a);
-	// reverse_rotate_a(&a);
-	// reverse_rotate_a(&a);
-	// reverse_rotate_a(&a);
-	int x = 0;
-	while (x < ac)
-		printf("a: %d\n", a.top[x++]);
 	if (ac == 3)
 		sort_three(&a);
 	if (ac == 4)
 		sort_four(&a, &b, &ac);
-	// if (ac == 5)
-	// 	sort_five(&a, &b, &ac);
-	// if (ac > 5 && ac <= 100)
-	// 	sort_hundred(&a, &b, c, &ac);
+	if (ac == 5)
+		sort_five(&a, &b, &ac);
+	if (ac > 5 && ac <= 100)
+		sort_hundred(&a, &b, c, &ac);
 	return (0);
 }
