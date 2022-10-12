@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 22:40:58 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/10 21:29:37 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/13 00:37:23 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,25 +36,26 @@ int	*sort_hundred(t_list *a, t_list *b, int *c, int *ac)
 	temp = *ac;
 	// while (*ac)
 	// {
-		while (i < *ac)
-		{
+		// while (i < *ac)
+		// {
 			printf("ac: %d\n", *ac);
 			printf("top: %d\n", a->top[0]);
 			if (a->top[0] <= c[(*ac - 1) / 2])
 			{
 				push_b(b, a);
 			}
-			else if (a->top[0] > c[(*ac - 1) / 2])
+			if (a->top[0] > c[(*ac - 1) / 2])
 			{
 				index = find_index(a, c, ac);
 				while (a->top[0] >= c[(*ac - 1) / 2])
 				{
 					reverse_rotate_a(a);
+					sort_hundred(a, b, c, ac);
 				}
 				// push_b(b, a);
 			}
-			i++;
-		}
+			// i++;
+		// }
 		// i = 0;
 		// *ac /= 2;
 	// }
@@ -66,6 +67,7 @@ int	*sort_hundred(t_list *a, t_list *b, int *c, int *ac)
 	while (i < temp)
 		printf("a hunned: %d\n", a->top[i++]);
 	i = 0;
+	printf("\n");
 	while (i < temp)
 		printf("b hunned: %d\n", b->top[i++]);
 	return (0);
