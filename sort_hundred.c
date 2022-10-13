@@ -6,69 +6,119 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 22:40:58 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/13 00:37:23 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/13 22:42:33 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
 
-int	find_index(t_list *a, int *c, int *ac)
+int	find_index(t_list *a, int *c, int something)
 {
 	int	index;
 
 	index = 0;
 	while (index < a->size)
 	{
-		if (a->top[index] <= c[(*ac - 1) / 2])
+		if (a->top[index] <= c[something])
 			return (index);
 		index++;
 	}
-	return (-1);
+	return (0);
+}
+
+void	get_to_top(t_list *a, int *c, int something)
+{
+	int	index;
+
+	index = find_index(a, c, something);
+	if (index < (a->size / 2))
+	{
+		while (index)
+		{
+			rotate_a(a);
+			index--;
+		}
+	}
+	if (index > (a->size / 2))
+	{
+		while (index <= a->size)
+		{
+			reverse_rotate_a(a);
+			index++;
+		}
+	}
+}
+
+int	checking_b(t_list *b, int *c, int something)
+{
+	int	i;
+	
+	i = 0;
+	while (i < b->size)
+	{
+		if (b->top[i] > c[something])
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+void	pushing_chunk_to_b(t_list *a, t_list *b, int *c, int i)
+{
+	int	something;
+
+	something = i;
+	while (a->size)
+	{
+		get_to_top(a, c, something);
+		if (a->top[0] > c[something])
+			break ;
+		push_b(b, a);
+	}
+}
+
+void	pushing_all_chunks(t_list *a, t_list *b, int *c, int *ac)
+{
+	int	i;
+
+	i = *ac / 5;
+	while (a->size)
+	{
+		pushing_chunk_to_b(a, b, c, i);
+		i += (*ac / 5);
+		if (i > *ac)
+			i = *ac - 1;
+	}
 }
 
 int	*sort_hundred(t_list *a, t_list *b, int *c, int *ac)
 {
-	int	i;
 	int	index;
-	int	temp;
 
-	i = 0;
-	temp = *ac;
-	// while (*ac)
-	// {
-		// while (i < *ac)
-		// {
-			printf("ac: %d\n", *ac);
-			printf("top: %d\n", a->top[0]);
-			if (a->top[0] <= c[(*ac - 1) / 2])
+	pushing_all_chunks(a, b, c, ac);
+	while (b->size)
+	{
+		index = find_biggest(b, &b->size);
+		if (index < (b->size / 2))
+		{
+			while (index)
 			{
-				push_b(b, a);
+				rotate_b(b);
+				index--;
 			}
-			if (a->top[0] > c[(*ac - 1) / 2])
+		}
+		else if (index > (b->size / 2))
+		{
+			while (index <= b->size)
 			{
-				index = find_index(a, c, ac);
-				while (a->top[0] >= c[(*ac - 1) / 2])
-				{
-					reverse_rotate_a(a);
-					sort_hundred(a, b, c, ac);
-				}
-				// push_b(b, a);
+				reverse_rotate_b(b);
+				index++;
 			}
-			// i++;
-		// }
-		// i = 0;
-		// *ac /= 2;
-	// }
-	printf("temp: %d\n", temp);
-	i = 0;
-	while (i < temp)
-		printf("c: %d\n", c[i++]);
-	i = 0;
-	while (i < temp)
-		printf("a hunned: %d\n", a->top[i++]);
-	i = 0;
-	printf("\n");
-	while (i < temp)
-		printf("b hunned: %d\n", b->top[i++]);
-	return (0);
+		}
+		push_a(a, b);
+	}
+	int x = 0;
+	while (x < a->size)
+		printf("a in sort hunned: %d\n", a->top[x++]);
+	return (a->top);
 }
