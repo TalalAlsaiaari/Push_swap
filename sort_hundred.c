@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 22:40:58 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/13 22:54:07 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/13 23:36:39 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int	*sort_hundred(t_list *a, t_list *b, int *c, int *ac)
 		}
 		if (index > (b->size / 2))
 		{
-			while (index <= b->size)
+			while (index < b->size)
 			{
 				reverse_rotate_b(b);
 				index++;
