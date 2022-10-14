@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 22:40:58 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/14 17:45:36 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/14 20:22:44 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,14 @@ void	get_to_top(t_list *a, int *c, int something)
 	}
 }
 
-int	checking_b(t_list *b, int *c, int something)
+int	checking_a(t_list *a, int *c, int something)
 {
 	int	i;
 	
 	i = 0;
-	while (i < b->size)
+	while (i < a->size)
 	{
-		if (b->top[i] > c[something])
+		if (a->top[i] > c[something])
 			return (1);
 		i++;
 	}
@@ -85,7 +85,7 @@ void	pushing_all_chunks(t_list *a, t_list *b, int *c, int *ac)
 	while (a->size)
 	{
 		pushing_chunk_to_b(a, b, c, i);
-		i += (*ac / 5);
+		i += i;
 		if (i > *ac)
 			i = *ac - 1;
 	}
@@ -117,8 +117,8 @@ int	*sort_hundred(t_list *a, t_list *b, int *c, int *ac)
 		}
 		push_a(a, b);
 	}
-	// int x = 0;
-	// while (x < a->size)
-	// 	printf("a in sort hunned: %d\n", a->top[x++]);
+	int x = 0;
+	while (x < a->size)
+		printf("a in sort hunned: %d\n", a->top[x++]);
 	return (a->top);
 }
