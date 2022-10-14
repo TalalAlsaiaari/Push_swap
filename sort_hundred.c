@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 22:40:58 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/13 23:36:39 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/14 17:31:39 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	get_to_top(t_list *a, int *c, int something)
 	}
 	if (index > (a->size / 2))
 	{
-		while (index <= a->size)
+		while (index < a->size)
 		{
 			reverse_rotate_a(a);
 			index++;
