@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 22:40:58 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/14 17:31:39 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/14 17:45:36 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,8 +117,8 @@ int	*sort_hundred(t_list *a, t_list *b, int *c, int *ac)
 		}
 		push_a(a, b);
 	}
-	int x = 0;
-	while (x < a->size)
-		printf("a in sort hunned: %d\n", a->top[x++]);
+	// int x = 0;
+	// while (x < a->size)
+	// 	printf("a in sort hunned: %d\n", a->top[x++]);
 	return (a->top);
 }
