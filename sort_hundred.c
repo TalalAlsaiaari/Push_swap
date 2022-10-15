@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 22:40:58 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/15 18:14:32 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/15 20:27:25 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ void	get_to_top(t_list *a, int *c, int something)
 	int	index;
 
 	index = find_index(a, c, something);
-	if (index <= (a->size / 2))
+	if (index == 1)
+		swap_a(a);
+	else if (index <= (a->size / 2))
 	{
 		while (index)
 		{
@@ -39,7 +41,7 @@ void	get_to_top(t_list *a, int *c, int something)
 			index--;
 		}
 	}
-	if (index > (a->size / 2))
+	else if (index > (a->size / 2))
 	{
 		while (index < a->size)
 		{
@@ -47,6 +49,8 @@ void	get_to_top(t_list *a, int *c, int something)
 			index++;
 		}
 	}
+	// if (a->top[0] > b->top[0] && b->top[0] > b->top[1] && b->size > 1)
+	// 	rotate_b(b);
 }
 
 int	checking_a(t_list *a, int *c, int something)
@@ -66,7 +70,6 @@ int	checking_a(t_list *a, int *c, int something)
 void	pushing_chunk_to_b(t_list *a, t_list *b, int *c, int i)
 {
 	int	something;
-	// int x;
 
 	something = i;
 	while (a->size)
@@ -74,23 +77,6 @@ void	pushing_chunk_to_b(t_list *a, t_list *b, int *c, int i)
 		get_to_top(a, c, something);
 		if (a->top[0] > c[something])
 			break ;
-		// x = find_smallest(b, b->size);
-		// if (x <= (b->size / 2))
-		// {
-		// 	while (x)
-		// 	{
-		// 		rotate_b(b);
-		// 		x--;
-		// 	}
-		// }
-		// if (x > (b->size / 2))
-		// {
-		// 	while (x < b->size)
-		// 	{
-		// 		reverse_rotate_b(b);
-		// 		x++;
-		// 	}
-		// }
 		push_b(b, a);
 	}
 }
@@ -100,7 +86,7 @@ void	pushing_all_chunks(t_list *a, t_list *b, int *c, int *ac)
 	int	i;
 
 	if (*ac > 100)
-		i = *ac / 11;
+		i = *ac / 10;
 	else
 		i = *ac / 5;
 	while (a->size)
@@ -120,7 +106,9 @@ int	*sort_hundred(t_list *a, t_list *b, int *c, int *ac)
 	while (b->size)
 	{
 		index = find_biggest(b, b->size);
-		if (index <= (b->size / 2))
+		if (index == 1)
+			swap_b(b);
+		else if (index <= (b->size / 2))
 		{
 			while (index)
 			{
@@ -128,7 +116,7 @@ int	*sort_hundred(t_list *a, t_list *b, int *c, int *ac)
 				index--;
 			}
 		}
-		if (index > (b->size / 2))
+		else if (index > (b->size / 2))
 		{
 			while (index < b->size)
 			{
