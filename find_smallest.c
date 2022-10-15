@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   find_smallest.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 18:35:44 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/12 23:37:43 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/15 17:49:38 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
 
-int	find_smallest(t_list *a, int *asize)
+int	find_smallest(t_list *a, int asize)
 {
 	int	min;
 	int	index;
@@ -20,7 +20,7 @@ int	find_smallest(t_list *a, int *asize)
 
 	i = 0;
 	min = INT_MAX;
-	while (i < *asize)
+	while (i < asize)
 	{
 		if (a->top[i] < min)
 		{

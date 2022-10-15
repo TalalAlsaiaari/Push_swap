@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   find_biggest.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 22:22:14 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/13 22:25:56 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/15 17:58:29 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
 
-int	find_biggest(t_list *b, int *bsize)
+int	find_biggest(t_list *b, int bsize)
 {
 	int	max;
 	int	index;
@@ -20,7 +20,7 @@ int	find_biggest(t_list *b, int *bsize)
 
 	i = 0;
 	max = INT_MIN;
-	while (i < *bsize)
+	while (i < bsize)
 	{
 		if (b->top[i] > max)
 		{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:29:05 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/13 22:35:48 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/15 18:04:49 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ int	main(int ac, char **av)
 		sort_four(&a, &b);
 	if (ac == 5)
 		sort_five(&a, &b);
-	if (ac > 5 && ac <= 100)
+	if (ac > 5)
 		sort_hundred(&a, &b, c, &ac);
 	return (0);
 }
