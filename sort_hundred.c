@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 19:28:10 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/18 20:30:36 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/18 20:40:41 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	find_index(t_list *a, int *c, int start, int end)
 	index = 0;
 	while (index < a->size)
 	{
-		if (a->top[index] >= c[start] && a->top[index] <= c[end])
+		if (a->top[index] >= c[start] && a->top[index] < c[end])
 			return (index);
 		index++;
 	}
@@ -67,7 +67,7 @@ void	get_to_top(t_list *a, int *c, int start, int end)
 // 	return (0);
 // }
 
-void	pushing_chunk_to_b(t_list *a, t_list *b, int *c, int start, int end)
+void	pushing_chunk_to_b(t_list *a, t_list *b, int *c, int start, int end, int mid)
 {
 	while (a->size)
 	{
@@ -75,6 +75,8 @@ void	pushing_chunk_to_b(t_list *a, t_list *b, int *c, int start, int end)
 		if (a->top[0] > c[end])
 			break ;
 		push_b(b, a);
+		if (b->top[0] < c[mid])
+			rotate_b(b);
 	}
 }
 
@@ -98,7 +100,7 @@ void	pushing_all_chunks(t_list *a, t_list *b, int *c, int *ac)
 	end = mid + offset;
 	while (a->size)
 	{
-		pushing_chunk_to_b(a, b, c, start, end);
+		pushing_chunk_to_b(a, b, c, start, end, mid);
 		start -= offset;
 		if (start < 0)
 			start = 0;
