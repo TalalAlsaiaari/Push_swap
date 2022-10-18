@@ -6,34 +6,34 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 19:28:10 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/18 19:28:25 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/18 20:30:36 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
 
-int	find_index(t_list *a, int *c, int something)
+int	find_index(t_list *a, int *c, int start, int end)
 {
 	int	index;
 
 	index = 0;
 	while (index < a->size)
 	{
-		if (a->top[index] <= c[something])
+		if (a->top[index] >= c[start] && a->top[index] <= c[end])
 			return (index);
 		index++;
 	}
 	return (0);
 }
 
-void	get_to_top(t_list *a, int *c, int something)
+void	get_to_top(t_list *a, int *c, int start, int end)
 {
 	int	index;
 
-	index = find_index(a, c, something);
-	if (index == 1)
-		swap_a(a);
-	else if (index <= (a->size / 2))
+	index = find_index(a, c, start, end);
+	// if (index == 1)
+	// 	swap_a(a);
+	if (index <= (a->size / 2))
 	{
 		while (index)
 		{
@@ -67,15 +67,12 @@ void	get_to_top(t_list *a, int *c, int something)
 // 	return (0);
 // }
 
-void	pushing_chunk_to_b(t_list *a, t_list *b, int *c, int i)
+void	pushing_chunk_to_b(t_list *a, t_list *b, int *c, int start, int end)
 {
-	int	something;
-
-	something = i;
 	while (a->size)
 	{
-		get_to_top(a, c, something);
-		if (a->top[0] > c[something])
+		get_to_top(a, c, start, end);
+		if (a->top[0] > c[end])
 			break ;
 		push_b(b, a);
 	}
@@ -83,54 +80,64 @@ void	pushing_chunk_to_b(t_list *a, t_list *b, int *c, int i)
 
 void	pushing_all_chunks(t_list *a, t_list *b, int *c, int *ac)
 {
-	int	i;
+	int	n;
+	int	mid;
+	int	offset;
+	int	start;
+	int	end;
 
-	// if (*ac > 100)
-	// 	i = *ac / 10;
-	// else
-	// 	i = *ac / 5;
-	i = 15;
-	if (i > *ac)
-		i = *ac - 1;
+	if (*ac <= 10)
+		n = 5;
+	else if (*ac >10 && *ac <= 150)
+		n = 8;
+	else
+		n = 18;
+	mid = *ac / 2;
+	offset = *ac / n;
+	start = mid - offset;
+	end = mid + offset;
 	while (a->size)
 	{
-		pushing_chunk_to_b(a, b, c, i);
-		i += 30;
-		if (i > *ac)
-			i = *ac - 1;
+		pushing_chunk_to_b(a, b, c, start, end);
+		start -= offset;
+		if (start < 0)
+			start = 0;
+		end += offset;
+		if (end > *ac)
+			end = *ac - 1;
 	}
 }
 
 int	*sort_hundred(t_list *a, t_list *b, int *c, int *ac)
 {
-	int	index;
+	// int	index;
 
 	pushing_all_chunks(a, b, c, ac);
-	while (b->size)
-	{
-		index = find_biggest(b, b->size);
-		if (index == 1)
-			swap_b(b);
-		else if (index <= (b->size / 2))
-		{
-			while (index)
-			{
-				rotate_b(b);
-				index--;
-			}
-		}
-		else if (index > (b->size / 2))
-		{
-			while (index < b->size)
-			{
-				reverse_rotate_b(b);
-				index++;
-			}
-		}
-		push_a(a, b);
-	}
-	int x = 0;
-	while (x < a->size)
-		printf("a in sort hunned: %d\n", a->top[x++]);
+	// while (b->size)
+	// {
+	// 	index = find_biggest(b, b->size);
+	// 	if (index == 1)
+	// 		swap_b(b);
+	// 	else if (index <= (b->size / 2))
+	// 	{
+	// 		while (index)
+	// 		{
+	// 			rotate_b(b);
+	// 			index--;
+	// 		}
+	// 	}
+	// 	else if (index > (b->size / 2))
+	// 	{
+	// 		while (index < b->size)
+	// 		{
+	// 			reverse_rotate_b(b);
+	// 			index++;
+	// 		}
+	// 	}
+	// 	push_a(a, b);
+	// }
+	// int x = 0;
+	// while (x < a->size)
+	// 	printf("a in sort hunned: %d\n", a->top[x++]);
 	return (a->top);
 }
