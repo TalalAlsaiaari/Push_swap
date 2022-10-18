@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:29:05 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/15 18:04:49 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/17 21:44:54 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	a.top = a_list(ac, temp);
+	free (temp);
 	b.top = (int *)malloc(sizeof(int) * ac);
 	a.size = ac;
 	b.size = 0;
@@ -114,5 +115,6 @@ int	main(int ac, char **av)
 		sort_five(&a, &b);
 	if (ac > 5)
 		sort_hundred(&a, &b, c, &ac);
+	free (b.top);
 	return (0);
 }
