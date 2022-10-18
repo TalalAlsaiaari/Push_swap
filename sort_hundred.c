@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 19:28:10 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/18 21:04:12 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/18 21:10:04 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,54 +110,54 @@ void	pushing_all_chunks(t_list *a, t_list *b, int *c, int *ac)
 	}
 }
 
-void	pushing_back(t_list *b, t_list *a)
-{
-	int	index;
+// void	pushing_back(t_list *b, t_list *a)
+// {
+// 	int	index;
 	
-	while (b->size)
-	{
-		index = find_biggest(b, b->size);
-		while (index)
-		{
-			push_a(a, b);
-			if (a->top[0] > a->top[1])
-				swap_a(a);
-			index--;
-		}
-		push_a(a, b);
-		rotate_a(a);
-	}
-}
+// 	while (b->size)
+// 	{
+// 		index = find_biggest(b, b->size);
+// 		while (index)
+// 		{
+// 			push_a(a, b);
+// 			if (a->top[0] > a->top[1])
+// 				swap_a(a);
+// 			index--;
+// 		}
+// 		push_a(a, b);
+// 		rotate_a(a);
+// 	}
+// }
 
 int	*sort_hundred(t_list *a, t_list *b, int *c, int *ac)
 {
-	// int	index;
+	int	index;
 
 	pushing_all_chunks(a, b, c, ac);
-	pushing_back(b, a);
-	// while (b->size)
-	// {
-	// 	index = find_biggest(b, b->size);
-	// 	if (index == 1)
-	// 		swap_b(b);
-	// 	else if (index <= (b->size / 2))
-	// 	{
-	// 		while (index)
-	// 		{
-	// 			rotate_b(b);
-	// 			index--;
-	// 		}
-	// 	}
-	// 	else if (index > (b->size / 2))
-	// 	{
-	// 		while (index < b->size)
-	// 		{
-	// 			reverse_rotate_b(b);
-	// 			index++;
-	// 		}
-	// 	}
-	// 	push_a(a, b);
-	// }
+	// pushing_back(b, a);
+	while (b->size)
+	{
+		index = find_biggest(b, b->size);
+		if (index == 1)
+			swap_b(b);
+		else if (index <= (b->size / 2))
+		{
+			while (index)
+			{
+				rotate_b(b);
+				index--;
+			}
+		}
+		else if (index > (b->size / 2))
+		{
+			while (index < b->size)
+			{
+				reverse_rotate_b(b);
+				index++;
+			}
+		}
+		push_a(a, b);
+	}
 	// int x = 0;
 	// while (x < a->size)
 	// 	printf("a in sort hunned: %d\n", a->top[x++]);
