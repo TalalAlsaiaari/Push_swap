@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 22:40:58 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/18 18:45:26 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/18 19:01:02 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,15 @@ void	pushing_chunk_to_b(t_list *a, t_list *b, int *c, int start, int end)
 	}
 }
 
-void	pushing_all_chunks(t_list *a, t_list *b, int *c, int offset, int start, int end)
+void	pushing_all_chunks(t_list *a, t_list *b, int *c, int offset, int start, int end, int *ac)
 {
 	while (a->size)
 	{
 		pushing_chunk_to_b(a, b, c, start, end);
 		start -= offset;
 		end += offset;
+		if (end > *ac)
+			end = *ac - 1;
 	}
 }
 
@@ -123,7 +125,7 @@ int	*sort_hundred(t_list *a, t_list *b, int *c, int *ac)
 	// 	i = *ac - 1;
 	while (a->size)
 	{
-		pushing_all_chunks(a, b, c, offset, start, end);
+		pushing_all_chunks(a, b, c, offset, start, end, ac);
 		// pushing_chunk_back(b, a);
 	}
 	// int x = 0;
