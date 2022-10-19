@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:15:24 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/17 20:32:55 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/19 15:03:13 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_list
 }			t_list;
 
 char			*ft_strsep(int size, char **strs, char *sep);
-long int		special_atoi(char *str);
+long int		special_atoi(char *str, int *a, char **two_d);
 int				*ft_intint(int *s, int c, int size);
 void			swap_a(t_list *a);
 void			swap_b(t_list *b);
@@ -45,6 +45,7 @@ int 			*sort_five(t_list *a, t_list *b);
 int				*compare_stack(t_list *a, int ac);
 int				*sort_hundred(t_list *a, t_list *b, int *c, int *ac);
 int				find_biggest(t_list *b, int bsize);
+void			error_free(char **two_d, int *a);
 
 
 #endif

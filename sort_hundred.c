@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 19:28:10 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/18 21:10:04 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/19 15:11:09 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ void	get_to_top(t_list *a, int *c, int start, int end)
 			index++;
 		}
 	}
-	// if (a->top[0] > b->top[0] && b->top[0] > b->top[1] && b->size > 1)
-	// 	rotate_b(b);
 }
 
 // int	checking_a(t_list *a, int *c, int something)
@@ -133,6 +131,8 @@ int	*sort_hundred(t_list *a, t_list *b, int *c, int *ac)
 {
 	int	index;
 
+	if (is_sorted(a, a->size) == 1)
+		return (a->top);
 	pushing_all_chunks(a, b, c, ac);
 	// pushing_back(b, a);
 	while (b->size)

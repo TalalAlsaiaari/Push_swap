@@ -3,20 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:29:05 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/17 21:44:54 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/19 16:38:21 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
 
-void	not_digit(char c)
+void	not_digit(char *temp, int y)
 {
-	if (ft_isdigit(c) == 0 && c != '-' && c != '+')
+	if (ft_isdigit(temp[y]) == 0 && temp[y] != '-' && temp[y] != '+')
 	{
 		ft_putstr_fd("Error\n", 2);
+		free (temp);
 		exit (1);
 	}
 }
@@ -36,7 +37,7 @@ int	args_counter(char *temp)
 			counter++;
 		while ((temp[y] && temp[y] != ' ') && (temp[y] && temp[y] != '\t'))
 		{
-			not_digit(temp[y]);
+			not_digit(temp, y);
 			y++;
 		}
 	}
@@ -57,6 +58,7 @@ void	duplicate_checker(int *a, int ac)
 		if (a[i] == a[j] && &a[i] != addr)
 		{
 			ft_putstr_fd("Error\n", 2);
+			free (a);
 			exit (1);
 		}
 		i++;
@@ -74,15 +76,23 @@ int	*a_list(int ac, char *one_d)
 	i = 0;
 	j = 0;
 	two_d = ft_split(one_d, ' ');
+	free (one_d);
 	a = (int *)malloc((sizeof(int) * ac));
 	if (a == 0)
 		exit (1);
 	while (two_d[j])
 	{
-		a[i] = special_atoi(two_d[j]);
+		a[i] = special_atoi(two_d[j], a, two_d);
 		i++;
 		j++;
 	}
+	j = 0;
+	while (two_d[j])
+	{
+		free (two_d[j]);
+		j++;
+	}
+	free (two_d);
 	duplicate_checker(a, ac);
 	return (a);
 }
@@ -93,16 +103,27 @@ int	main(int ac, char **av)
 	t_list	a;
 	t_list	b;
 	int		*c;
+	int		i;
 
+
+	i = 0;
 	temp = ft_strsep(ac - 1, av + 1, " ");
+	if ((temp[i] == '-' || temp[i] == '+') && (temp[i + 1] == '-' || temp[i + 1] == '+' || temp[i + 1] == '\0'))
+	{
+		ft_putstr_fd("Error\n", 2);
+		free (temp);
+		return (1);
+	} 
 	ac = args_counter(temp);
 	if (ac < 2)
 	{
-		ft_putstr_fd("Error\n", 2);
+		if (ac == 0)
+			ft_putstr_fd("Error\n", 2);
+		free (temp);
 		return (1);
 	}
 	a.top = a_list(ac, temp);
-	free (temp);
+	// free (temp);
 	b.top = (int *)malloc(sizeof(int) * ac);
 	a.size = ac;
 	b.size = 0;
@@ -115,6 +136,8 @@ int	main(int ac, char **av)
 		sort_five(&a, &b);
 	if (ac > 5)
 		sort_hundred(&a, &b, c, &ac);
+	free (c);
 	free (b.top);
+	free (a.top);
 	return (0);
 }

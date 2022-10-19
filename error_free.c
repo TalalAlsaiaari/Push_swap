@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pb.c                                               :+:      :+:    :+:   */
+/*   error_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 20:17:42 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/19 11:11:54 by talsaiaa         ###   ########.fr       */
+/*   Created: 2022/10/19 14:38:29 by talsaiaa          #+#    #+#             */
+/*   Updated: 2022/10/19 15:05:13 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
 
-void	push_b(t_list *b, t_list *a)
+void	error_free(char **two_d, int *a)
 {
 	int	i;
-	
+
 	i = 0;
-	if (!a->size)
-		return ;
-	b->size++;
-	i = b->size - 1;
-	while (i > 0)
+	while (two_d[i])
 	{
-		b->top[i] = b->top[i - 1];
-		i--;
+		free (two_d[i]);
+		i++;
 	}
-	b->top[0] = a->top[0];
-	a->top++;
-	a->size--;
-	ft_printf("pb\n");
+	free (two_d);
+	free (a);
+	exit (1);
 }

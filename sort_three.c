@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:51:16 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/15 17:48:57 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/19 11:13:34 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ int	*sort_three(t_list *a)
 		swap_a(a);
 		reverse_rotate_a(a);
 	}
-	// int x = 0;
-	// while (x < a->size)
-	// 	printf("a in 3 sorted: %d\n", a->top[x++]);
 	return (a->top);
 }
 
@@ -58,9 +55,6 @@ int *sort_four(t_list *a, t_list *b)
 		sort_three(a);
 		push_a(a, b);
 	}
-	// int x = 0;
-	// while (x < a->size)
-	// 	printf("a in 4 sorted: %d\n", a->top[x++]);
 	return (a->top);
 }
 
@@ -89,8 +83,5 @@ int *sort_five(t_list *a, t_list *b)
 		sort_four(a, b);
 		push_a(a, b);
 	}
-	// int x = 0;
-	// while (x < a->size)
-	// 	printf("a in 5 sorted: %d\n", a->top[x++]);
 	return (a->top);
 }

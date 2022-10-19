@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_biggest.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 22:22:14 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/15 17:58:29 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/19 15:11:18 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	find_biggest(t_list *b, int bsize)
 
 	i = 0;
 	max = INT_MIN;
+	index = 0;
 	while (i < bsize)
 	{
 		if (b->top[i] > max)

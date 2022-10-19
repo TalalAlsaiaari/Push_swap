@@ -6,56 +6,70 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 23:29:11 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/08 00:53:35 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/19 16:33:37 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
 
-void	number_check(long int res, int s, int c)
+char	number_check(long res, int s, char *str, int x)
 {
-	if ((c != '\0' && c == '+') || (c != '\0' && c == '-'))
+	char	i;
+
+	i = 'y';
+	if ((str[x] != '\0' && str[x] == '+') || (str[x] != '\0' && str[x] == '-'))
 	{
 		ft_putstr_fd("Error\n", 2);
-		exit (1);
+		i = 'x';
+		return (i);
 	}
 	else if (res == 0 && s != 0)
 	{
 		ft_putstr_fd("Error\n", 2);
-		exit (1);
+		i = 'x';
+		return (i);
 	}
 	else if ((res * s) > 2147483647 || (res * s) < -2147483648)
 	{
 		ft_putstr_fd("Error\n", 2);
-		exit (1);
+		i = 'x';
+		return (i);
 	}
+	return (i);
 }
 
-void	extra_sign(char c)
+char	extra_sign(char *str, int x)
 {
-	if (c == '-' || c == '+')
+	char	i;
+	
+	i = 'y';
+	if (str[x] == '-' || str[x] == '+')
 	{
 		ft_putstr_fd("Error\n", 2);
-		exit (1);
+		i = 'x';
+		return (i);
 	}
+	return (i);
 }
 
-int	zero_check(char c, int s)
+int	zero_check(char *str, int x, int s)
 {
-	if (c == '0')
+	if ((str[x] == '0' && str[x + 1] == ' ') || (str[x] == '0' && str[x + 1] == '\0'))
 		s = 0;
 	return (s);
 }
 
-long int	special_atoi(char *str)
+long int	special_atoi(char *str, int *a, char **two_d)
 {
-	int			x;
-	int			s;
-	long int	res;
+	int		x;
+	int		s;
+	char	c;
+	long	res;
 
 	x = 0;
 	s = 1;
 	res = 0;
+	c = 'y';
 	while (str[x] == ' ' || (str[x] >= 9 && str[x] <= 13))
 		x++;
 	while (str[x] == '-' || str[x] == '+')
@@ -64,14 +78,21 @@ long int	special_atoi(char *str)
 			s *= -1;
 		x++;
 		if (str[x] == '-' || str[x] == '+')
-			extra_sign(str[x]);
+		{
+			ft_putstr_fd("errer\n", 2);
+			c = extra_sign(str, x);
+		}
+		if (c == 'x')
+			error_free(two_d, a);
 	}
-	s = zero_check(str[x], s);
+	s = zero_check(str, x, s);
 	while (str[x] >= '0' && str[x] <= '9')
 	{
 		res = (str[x] - '0') + (res * 10);
 		x++;
 	}
-	number_check(res, s, str[x]);
+	c = number_check(res, s, str, x);
+	if (c == 'x')
+		error_free(two_d, a);
 	return (res * s);
 }

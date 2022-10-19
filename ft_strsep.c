@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 17:04:32 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/08 17:49:26 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/19 13:14:47 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void	string_check(char **strs, char *dest, int size)
 					j++;
 				dest[x] = ' ';
 				x++;
+				
 			}
 			else
 				dest[x++] = strs[i][j++];
@@ -81,6 +82,11 @@ char	*ft_strsep(int size, char **strs, char *sep)
 	char	*dest;
 	int		final_len;
 
+	if (size <= 0)
+	{
+		ft_putstr_fd("Error\n", 2);
+		exit (1);
+	}
 	final_len = dest_len(strs, size, sep);
 	if (size == 0)
 		return ((char *)malloc(sizeof (char)));
