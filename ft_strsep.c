@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsep.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 17:04:32 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/19 13:14:47 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/19 23:07:42 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	string_check(char **strs, char *dest, int size)
 					j++;
 				dest[x] = ' ';
 				x++;
-				
 			}
 			else
 				dest[x++] = strs[i][j++];

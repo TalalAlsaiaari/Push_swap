@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:51:16 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/19 11:13:34 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/19 23:26:33 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,23 @@ int	*sort_three(t_list *a)
 {
 	if (a->top[0] < a->top[1] && a->top[1] < a->top[2] && a->top[2] > a->top[0])
 		return (a->top);
-	else if (a->top[0] < a->top[1] && a->top[1] > a->top[2] && a->top[2] > a->top[0])
+	else if (a->top[0] < a->top[1] && a->top[1] > a->top[2]
+		&& a->top[2] > a->top[0])
 	{
 		reverse_rotate_a(a);
 		swap_a(a);
 	}
-	else if (a->top[0] > a->top[1] && a->top[1] < a->top[2] && a->top[2] > a->top[0])
+	else if (a->top[0] > a->top[1] && a->top[1] < a->top[2]
+		&& a->top[2] > a->top[0])
 		swap_a(a);
-	else if (a->top[0] < a->top[1] && a->top[1] > a->top[2] && a->top[2] < a->top[0])
+	else if (a->top[0] < a->top[1] && a->top[1] > a->top[2]
+		&& a->top[2] < a->top[0])
 		reverse_rotate_a(a);
-	else if (a->top[0] > a->top[1] && a->top[1] < a->top[2] && a->top[2] < a->top[0])
+	else if (a->top[0] > a->top[1] && a->top[1] < a->top[2]
+		&& a->top[2] < a->top[0])
 		rotate_a(a);
-	else if (a->top[0] > a->top[1] && a->top[1] > a->top[2] && a->top[2] < a->top[0])
+	else if (a->top[0] > a->top[1] && a->top[1] > a->top[2]
+		&& a->top[2] < a->top[0])
 	{
 		swap_a(a);
 		reverse_rotate_a(a);
@@ -35,9 +40,9 @@ int	*sort_three(t_list *a)
 	return (a->top);
 }
 
-int *sort_four(t_list *a, t_list *b)
+int	*sort_four(t_list *a, t_list *b)
 {
-	int i;
+	int	i;
 
 	i = find_smallest(a, a->size);
 	if (i == 1)
@@ -58,7 +63,7 @@ int *sort_four(t_list *a, t_list *b)
 	return (a->top);
 }
 
-int *sort_five(t_list *a, t_list *b)
+int	*sort_five(t_list *a, t_list *b)
 {
 	int	i;
 

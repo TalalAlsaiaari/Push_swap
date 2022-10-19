@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 19:07:21 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/17 20:49:19 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/19 23:19:53 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	rotate_a(t_list *a)
 {
 	int	i;
-	int temp;
+	int	temp;
 
 	if (a->size == 1 || !a->size)
 		return ;

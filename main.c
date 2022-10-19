@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:29:05 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/19 16:38:21 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/19 23:17:50 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	not_digit(char *temp, int y)
 int	args_counter(char *temp)
 {
 	int	y;
-	int counter;
+	int	counter;
 
 	y = 0;
 	counter = 0;
@@ -88,15 +88,12 @@ int	*a_list(int ac, char *one_d)
 	}
 	j = 0;
 	while (two_d[j])
-	{
-		free (two_d[j]);
-		j++;
-	}
+		free (two_d[j++]);
 	free (two_d);
 	duplicate_checker(a, ac);
 	return (a);
 }
-			
+
 int	main(int ac, char **av)
 {	
 	char	*temp;
@@ -105,15 +102,15 @@ int	main(int ac, char **av)
 	int		*c;
 	int		i;
 
-
 	i = 0;
 	temp = ft_strsep(ac - 1, av + 1, " ");
-	if ((temp[i] == '-' || temp[i] == '+') && (temp[i + 1] == '-' || temp[i + 1] == '+' || temp[i + 1] == '\0'))
+	if ((temp[i] == '-' || temp[i] == '+')
+		&& (temp[i + 1] == '-' || temp[i + 1] == '+' || temp[i + 1] == '\0'))
 	{
 		ft_putstr_fd("Error\n", 2);
 		free (temp);
 		return (1);
-	} 
+	}
 	ac = args_counter(temp);
 	if (ac < 2)
 	{
@@ -123,7 +120,6 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	a.top = a_list(ac, temp);
-	// free (temp);
 	b.top = (int *)malloc(sizeof(int) * ac);
 	a.size = ac;
 	b.size = 0;

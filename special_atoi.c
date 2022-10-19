@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   special_atoi.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 23:29:11 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/19 16:33:37 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/19 23:27:32 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	number_check(long res, int s, char *str, int x)
 char	extra_sign(char *str, int x)
 {
 	char	i;
-	
+
 	i = 'y';
 	if (str[x] == '-' || str[x] == '+')
 	{
@@ -54,7 +54,8 @@ char	extra_sign(char *str, int x)
 
 int	zero_check(char *str, int x, int s)
 {
-	if ((str[x] == '0' && str[x + 1] == ' ') || (str[x] == '0' && str[x + 1] == '\0'))
+	if ((str[x] == '0' && str[x + 1] == ' ')
+		|| (str[x] == '0' && str[x + 1] == '\0'))
 		s = 0;
 	return (s);
 }

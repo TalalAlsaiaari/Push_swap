@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:15:24 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/19 15:03:13 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/19 22:52:43 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include "../ft_printf/ft_printf.h"
 # include "../libft/libft.h"
@@ -39,13 +39,12 @@ void			push_a(t_list *a, t_list *b);
 void			push_b(t_list *b, t_list *a);
 int				*sort_three(t_list *a);
 int				find_smallest(t_list *a, int asize);
-int 			*sort_four(t_list *a, t_list *b);
+int				*sort_four(t_list *a, t_list *b);
 int				is_sorted(t_list *a, int asize);
-int 			*sort_five(t_list *a, t_list *b);
+int				*sort_five(t_list *a, t_list *b);
 int				*compare_stack(t_list *a, int ac);
 int				*sort_hundred(t_list *a, t_list *b, int *c, int *ac);
 int				find_biggest(t_list *b, int bsize);
 void			error_free(char **two_d, int *a);
-
 
 #endif

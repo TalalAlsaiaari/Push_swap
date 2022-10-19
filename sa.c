@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 18:50:06 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/17 20:49:33 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/19 23:21:22 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	swap_a(t_list *a)
 {
-	int temp;
+	int	temp;
 
 	if (a->size == 1 || !a->size)
 		return ;
