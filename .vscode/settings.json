@@ -1,9 +1,0 @@
-{
-	"makefile.launchConfigurations": [
-		{
-			"cwd": "/Users/talsaiaa/Desktop/Push_swap",
-			"binaryPath": "/Users/talsaiaa/Desktop/Push_swap/push_swap",
-			"binaryArgs": ["3", "4", "12", "8", "7", "66", "9", "90 505 44 2"]
-		}
-	]
-}

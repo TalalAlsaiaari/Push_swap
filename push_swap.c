@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/28 01:36:18 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/20 21:27:04 by talsaiaa         ###   ########.fr       */
+/*   Created: 2022/10/20 18:37:36 by talsaiaa          #+#    #+#             */
+/*   Updated: 2022/10/20 21:28:49 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "include/push_swap.h"
 
-long int	ft_atoi(char *str)
+void	push_swap(t_list a, t_list b, int *c, int ac)
 {
-	int			s;
-	long int	res;
-
-	s = 1;
-	res = 0;
-	while (*str == ' ' || (*str >= 9 && *str <= 13))
-	{
-		str++;
-	}
-	while (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			s *= -1;
-		str++;
-		break ;
-	}
-	while (*str >= '0' && *str <= '9')
-	{
-		res = (*str - '0') + (res * 10);
-		str++;
-	}
-	return (res * s);
+	if (ac == 3)
+		sort_three(&a);
+	if (ac == 4)
+		sort_four(&a, &b);
+	if (ac == 5)
+		sort_five(&a, &b);
+	if (ac > 5)
+		big_sort(&a, &b, c, &ac);
 }

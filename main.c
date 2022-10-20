@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:29:05 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/19 23:17:50 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/20 21:29:19 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,38 +100,22 @@ int	main(int ac, char **av)
 	t_list	a;
 	t_list	b;
 	int		*c;
-	int		i;
 
-	i = 0;
-	temp = ft_strsep(ac - 1, av + 1, " ");
-	if ((temp[i] == '-' || temp[i] == '+')
-		&& (temp[i + 1] == '-' || temp[i + 1] == '+' || temp[i + 1] == '\0'))
-	{
-		ft_putstr_fd("Error\n", 2);
-		free (temp);
-		return (1);
-	}
+	temp = args_checker(ac, av);
 	ac = args_counter(temp);
 	if (ac < 2)
 	{
-		if (ac == 0)
+		if (ac == 0 || ft_atoi(av[1]) > INT_MAX || ft_atoi(av[1]) < INT_MIN)
 			ft_putstr_fd("Error\n", 2);
 		free (temp);
-		return (1);
+		exit (1);
 	}
 	a.top = a_list(ac, temp);
 	b.top = (int *)malloc(sizeof(int) * ac);
 	a.size = ac;
 	b.size = 0;
 	c = compare_stack(&a, ac);
-	if (ac == 3)
-		sort_three(&a);
-	if (ac == 4)
-		sort_four(&a, &b);
-	if (ac == 5)
-		sort_five(&a, &b);
-	if (ac > 5)
-		sort_hundred(&a, &b, c, &ac);
+	push_swap(a, b, c, ac);
 	free (c);
 	free (b.top);
 	free (a.top);

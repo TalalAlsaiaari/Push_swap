@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   args_checker.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/28 01:36:18 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/20 21:27:04 by talsaiaa         ###   ########.fr       */
+/*   Created: 2022/10/20 18:23:10 by talsaiaa          #+#    #+#             */
+/*   Updated: 2022/10/20 20:28:54 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "include/push_swap.h"
 
-long int	ft_atoi(char *str)
+char	*args_checker(int ac, char **av)
 {
-	int			s;
-	long int	res;
+	char	*temp;
+	int		i;
 
-	s = 1;
-	res = 0;
-	while (*str == ' ' || (*str >= 9 && *str <= 13))
+	i = 0;
+	temp = ft_strsep(ac - 1, av + 1, " ");
+	if ((temp[i] == '-' || temp[i] == '+')
+		&& (temp[i + 1] == '-' || temp[i + 1] == '+' || temp[i + 1] == '\0'))
 	{
-		str++;
+		ft_putstr_fd("Error\n", 2);
+		free (temp);
+		exit (1);
 	}
-	while (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			s *= -1;
-		str++;
-		break ;
-	}
-	while (*str >= '0' && *str <= '9')
-	{
-		res = (*str - '0') + (res * 10);
-		str++;
-	}
-	return (res * s);
+	return (temp);
 }

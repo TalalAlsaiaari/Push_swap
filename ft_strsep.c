@@ -6,7 +6,7 @@
 /*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 17:04:32 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/19 23:07:42 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/20 17:53:27 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,35 +42,43 @@ int	dest_len(char **strs, int size, char *sep)
 	return (dest_len);
 }
 
+int	whiling(char **strs, char *dest, int i, int size)
+{
+	int			j;
+	static int	x;
+
+	j = 0;
+	while (strs[i][j])
+	{
+		if (ft_strchr(strs[i], '\t') != 0 || ft_strchr(strs[i], ' ') != 0)
+		{
+			while (strs[i][j] == ' ' || strs[i][j] == '\t')
+				j++;
+			while (strs[i][j] != ' ' && strs[i][j] != '\t' && strs[i][j])
+				dest[x++] = strs[i][j++];
+			if (strs[i][j] != '\0')
+				dest[x++] = ' ';
+			while (strs[i][j] == ' ' || strs[i][j] == '\t')
+				j++;
+		}
+		else
+			dest[x++] = strs[i][j++];
+	}
+	if (i < size - 1)
+		dest[x++] = ' ';
+	return (x);
+}
+
 void	string_check(char **strs, char *dest, int size)
 {
 	int	i;
-	int	j;
 	int	x;
 
 	i = 0;
 	x = 0;
 	while (i < size)
 	{
-		j = 0;
-		while (strs[i][j])
-		{
-			if (ft_strchr(strs[i], '\t') != 0 || ft_strchr(strs[i], ' ') != 0)
-			{
-				if (strs[i][j] == ' ' || strs[i][j] == '\t')
-					j++;
-				while (strs[i][j] != ' ' && strs[i][j] != '\t' && strs[i][j])
-					dest[x++] = strs[i][j++];
-				while (strs[i][j] == ' ' || strs[i][j] == '\t')
-					j++;
-				dest[x] = ' ';
-				x++;
-			}
-			else
-				dest[x++] = strs[i][j++];
-		}
-		if (i < size - 1)
-			dest[x++] = ' ';
+		x = whiling(strs, dest, i, size);
 		i++;
 	}
 	dest[x] = '\0';
