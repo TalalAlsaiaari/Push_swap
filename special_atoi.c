@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   special_atoi.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: talsaiaa <talsaiaa@student.42abudhabi.a    +#+  +:+       +#+        */
+/*   By: talsaiaa <talsaiaa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 23:29:11 by talsaiaa          #+#    #+#             */
-/*   Updated: 2022/10/20 19:45:28 by talsaiaa         ###   ########.fr       */
+/*   Updated: 2022/10/23 18:35:42 by talsaiaa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ int	zero_check(char *str, int x, int s)
 void	extra_sign(char *str, int x, char **two_d, int *a)
 {
 	if (str[x] == '-' || str[x] == '+')
+	{
+		ft_putstr_fd("Error\n", 2);
+		error_free(two_d, a);
+	}
+	else if (str[x] == '\0')
 	{
 		ft_putstr_fd("Error\n", 2);
 		error_free(two_d, a);
